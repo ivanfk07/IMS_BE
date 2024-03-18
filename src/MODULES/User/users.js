@@ -1,11 +1,12 @@
-const { IMS } = require('../../.conf/db-conf')
+const { IMS } = require('../../.conf/db-conf');
+const TABLES = require('../../.conf/tables');
 
 class Users {
 
     authentication = async (Email, Password) => {
         const CONNECTION = await IMS.getConnection();
         const QUERY = [
-            "SELECT u.*, c.NAME AS COMPANY_NAME FROM users AS u JOIN company AS c ON u.COMPANY_ID = c.ID WHERE u.EMAIL = ? AND u.PASSWORD = ?"
+            `SELECT u.*, c.NAME AS COMPANY_NAME FROM ${TABLES.USER.TABLE} AS u JOIN company AS c ON u.COMPANY_ID = c.ID WHERE u.EMAIL = ? AND u.PASSWORD = ?`
         ] ;
         const PARAMS = [[Email, Password]] ;
 

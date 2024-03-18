@@ -8,7 +8,7 @@ const users = new Users() ;
 
 router.post(ENDPOINTS.POST.LOGIN, async (req, res) => {
     const { email, password } = req.body;
-
+    // console.log(email, password)
     try {
         const user = await users.authentication(email, password) ;
         

@@ -1,7 +1,7 @@
 const TABLES = {
     USER: {
         TABLE: "users",
-        COLOUMN: [
+        COLUMN: [
             "USERNAME",
             "EMAIL",
             "PASSWORD",
@@ -9,9 +9,23 @@ const TABLES = {
             "COMPANY_ID"
         ]
     },
+    COMPANY: {
+        TABLE: "company",
+        COLUMN: [
+            "NAME"
+        ]
+    },
+    WAREHOUSE: {
+        TABLE: "company_warehouse",
+        COLUMN: [
+            "COMPANY_ID",
+            "NAME",
+            "INFORMATION",
+        ]
+    },
     ASSETS: {
         TABLE: "equipment_assets",
-        COLOUMN: [            
+        COLUMN: [            
             "INVENTORY_NO", 
             "NAME", 
             "BRAND", 
@@ -24,9 +38,33 @@ const TABLES = {
             "INPUT_DATE"
         ]
     },
-    ASSETS_INFO: "equipment_assets_more_info",
-    ASSETS_IMAGES: "equipment_assets_images",
-    TRANSACTION: "equipment_assets_transaction",
+    ASSETS_INFO: {
+        TABLE: "equipment_assets_more_info",
+        COLUMN: [
+            "ASSETS_ID",
+            "LINE_AREA_ID",
+            "ASSETS_CONDITION",
+            "STATUS",
+            "INFORMATION",
+        ]
+    },
+    ASSETS_IMAGES: {
+        TABLE: "equipment_assets_images",
+        COLUMN: [
+
+        ]
+    },
+    TRANSACTION: {
+        TABLE: "equipment_assets_transaction",
+        COLUMN: [
+            "ASSETS_ID",
+            "INPUT_BY",
+            "ISSUED_BY",
+            "ISSUED_DATE",
+            "RETURN_DATE",
+            "STATUS",
+        ]
+    },
 }
 
 module.exports = TABLES ;

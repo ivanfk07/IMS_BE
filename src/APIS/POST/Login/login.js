@@ -11,6 +11,8 @@ router.post(ENDPOINTS.POST.LOGIN, async (req, res) => {
     
     try {
         const user = await users.authentication(email, password) ;
+
+        console.log(user)
         
         res.status(200).json({
             user

@@ -6,11 +6,11 @@ const router = express.Router();
 
 const assetsList = new AssetsList();
 
-router.post(ENDPOINTS.POST.ASSETS_ADD, async (req, res) => {
-    const { INVENTORY_NO, NAME, BRAND, YEAR, MODEL, MADE_IN, COMPANY_ID, QTY, INPUT_BY, INPUT_DATE } = req.body;
+router.post(ENDPOINTS.POST.ASSETS.ADD, async (req, res) => {
+    const { INVENTORY_NO, NAME, BRAND, YEAR, MODEL, MADE_IN, COMPANY_ID, QTY, INPUT_BY, INPUT_DATE, ASSETS_CONDITION } = req.body;
     
     try {
-        await assetsList.add(INVENTORY_NO, NAME, BRAND, YEAR, MODEL, MADE_IN, COMPANY_ID, QTY, INPUT_BY, INPUT_DATE)
+        await assetsList.add(INVENTORY_NO, NAME, BRAND, YEAR, MODEL, MADE_IN, COMPANY_ID, QTY, INPUT_BY, INPUT_DATE, ASSETS_CONDITION)
         
         res.status(200).json({
             status: 'success',

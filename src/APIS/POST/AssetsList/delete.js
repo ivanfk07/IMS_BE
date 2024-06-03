@@ -1,5 +1,4 @@
 const ENDPOINTS = require('../../../.conf/endpoints');
-const security = require('../../../MIDDLEWARE/security');
 const AssetsList = require('../../../MODULES/AssetsList/AssetsList');
 
 const express = require('express');
@@ -7,14 +6,15 @@ const router = express.Router();
 
 const assetsList = new AssetsList();
 
-router.get(`${ENDPOINTS.GET.ASSETS_LIST}/:user_id/:company_id`, security.first, async (req, res) => {
-    const company_id = req.params.company_id
-    
+router.post(ENDPOINTS.POST.ASSETS.DELETE, async (req, res) => {
+    const { ID } = req.body;
     
     try {
-        const DATA = await assetsList.get(company_id) ;
+        await assetsList.delete(ID)
         
-        res.status(200).json(DATA[0])
+        res.status(200).json({
+            status: 'success',
+        })
     } catch (error) {
         res.status(200).json({
             status: 'failed',

@@ -17,6 +17,8 @@ const PATH_CONF = {
     }
 }
 
+
+
 const ARRAY_PATH = {
     POST: [
         PATH_CONF.POST.LOGIN,

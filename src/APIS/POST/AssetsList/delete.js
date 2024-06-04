@@ -1,10 +1,10 @@
 const ENDPOINTS = require('../../../.conf/endpoints');
 const AssetsList = require('../../../MODULES/AssetsList/AssetsList');
 
+const assetsList = new AssetsList();
+
 const express = require('express');
 const router = express.Router();
-
-const assetsList = new AssetsList();
 
 router.post(ENDPOINTS.POST.ASSETS.DELETE, async (req, res) => {
     const { ID } = req.body;
